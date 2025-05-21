@@ -1,0 +1,234 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/static/forecast_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    overflow-y: scroll; /* Ensure the scrollbar is always visible */
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+/* Customize the scrollbar */
+body::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #1e1e1e; /* Track color */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #ff9800; /* Thumb color */
+    border-radius: 5px; /* Rounded corners for the thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #e68900; /* Thumb color on hover */
+}
+
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3; /* Darken the video for better readability */
+}
+
+/* Navigation bar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.navbar h1 {
+    font-size: 30px;
+    font-family: Algerian;
+    font-weight: lighter;
+    color: #ff9800;
+    margin: 0;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: #ff9800;
+    transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+    background: #e68900;
+}
+
+/* Center the content-section */
+.content-section {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 30px;
+    border-radius: 10px;
+    margin: 100px auto; /* Center horizontally and add space from the top */
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.content-section h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+    color: #c3b2f0;
+}
+.content-section h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ff9800;
+}
+/* .content-section p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #3a0909;
+} */
+/* Input box styling */
+#city {
+    width: 80%;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styling */
+button {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #fff;
+    background: #ff9800;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: #e68900;
+}
+
+/* Forecast cards styling */
+.forecast-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.forecast-card h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #ece90e;
+}
+
+.forecast-card p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+/* Features Section Styling */
+.features-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px auto;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: rgba(7, 138, 214, 0.74);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card h3 {
+    color: #271904;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* Info Section Styling */
+.info-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px auto;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    text-align: center;
+}
+
+.info-card h4 {
+    color: #ff9800;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    font-size: 18px;
+    line-height: 1.5;
+}

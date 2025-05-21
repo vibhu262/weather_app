@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Weather App</h1>
+        <div class="nav-buttons">
+            <a href="/" class="nav-button">Home</a>
+            <a href="/forecast" class="nav-button">Forecast</a>
+            <a href="/map" class="nav-button">Map</a>
+          
+        </div>
+    </nav>
+    <div class="content-section">
+        <h2>3-Hour Weather Forecast</h2>
+        <input type="text" id="city" placeholder="Enter city name">
+        <button id="getForecast">Get Forecast</button>
+        <div id="forecastCards" class="forecast-cards"></div>
+    </div>
+    <script>
+        document.getElementById("getForecast").addEventListener("click", async () => {
+            const city = document.getElementById("city").value;
+            if (!city) {
+                alert("Please enter a city name");
+                return;
+            }
+
+            try {
+                const response = await fetch(`/forecast_data?city=${city}`);
+                if (!response.ok) {
+                    throw new Error("Failed to fetch forecast data");
+                }
+
+                const data = await response.json();
+                const forecastCards = document.getElementById("forecastCards");
+                forecastCards.innerHTML = ""; // Clear previous results
+
+                // Display the first three forecast entries in cards
+                for (let i = 0; i < 3; i++) {
+                    const forecast = data.list[i];
+                    const card = document.createElement("div");
+                    card.className = "forecast-card";
+                    card.innerHTML = `
+                        <h4>Time : ${forecast.dt_txt}</h4>
+                        <p>Temperature: ${forecast.main.temp}°C</p>
+                        <p>Weather: ${forecast.weather[0].description}</p>
+                        <p>Humidity: ${forecast.main.humidity}%</p>
+                    `;
+                    forecastCards.appendChild(card);
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    </script>
+</body>
+</html>
